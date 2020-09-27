@@ -1,12 +1,24 @@
 version: "3" # Version of docker compose .yml file
 services: # Specify services. Each service will run in container
-    redis-server: # Redis image will be built from Dockerfile and run in the container
+    redis-server: # Redis image will be built from Dockerfile and run in the container , can be any name
         build:
             context: .
-            dockerfile: Dockerfile-redis
-    node-app: # Node app image will be built from Dockerfile and run in the container
+            dockerfile: Dockerfile-redis        
+        container_name: custom_visits_redis-server        
+        image: custom_visits_redis-server:redis_visits_1
+        restart: always #a auto restart for server going down
+       #for version greater than 3 
+       #restart_policy:
+           #condition: always
+    
+    node-app: # Node app image will be built from Dockerfile and run in the container ,  can be any name
         build:
             context: .
-            dockerfile: Dockerfile-node
+            dockerfile: Dockerfile-node           
+        image: custom_visits_node-app-server:node-app_visits_1
+        container_name: custom_visits_node-app-server
         ports:
             - "8000:8000" # Map Local machine port to container port
+        restart: always
+       #restart_policy:
+           #condition: always 

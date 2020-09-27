@@ -1,7 +1,7 @@
 #### Step 1
 
 # Use an existing docker image as base
-FROM node:alpine as builder
+FROM node:alpine
 
 # Specify WORKDIR
 WORKDIR /react-project

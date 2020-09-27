@@ -1,14 +1,14 @@
 
 #step 1: specify OS
-From centos:7
+From node:alpine
 
 #dir select inside container
 WORKDIR '/node-js-app'
 
 #step 2
 #download node.js
-Run curl -sL https://rpm.nodesource.com/setup_12.x | bash -
-Run yum install -y nodejs
+#Run curl -sL https://rpm.nodesource.com/setup_12.x | bash -
+#Run yum install -y nodejs
 
 #specifying files to copy to tmep docker container (these are the files needed for node.js server to run)
 

@@ -22,7 +22,8 @@ redis_client.set("visits", 1);
 
 // Defining logic when user visits the root or home page
 app.get("/", (req, res) => {
-    //process.exit(0)
+      //process.exit(0) //enabling this will kill the app when the address is visited 
+      //this is process exit gracefully
 
     // Getting the visit count
     redis_client.get("visits", (err, visits) => {

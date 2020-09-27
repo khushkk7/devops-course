@@ -1,9 +1,12 @@
 # Use an existing docker image as base
-From centos:7
+#From centos7
+From redis:6.0.6-alpine
+
+workdir /custom-redis
 
 # Download and install dependencies 
-RUN yum -y install epel-release
-RUN yum -y install redis
+#RUN yum -y install epel-release
+#RUN yum -y install redis
 
 COPY ./redis.conf ./
 
